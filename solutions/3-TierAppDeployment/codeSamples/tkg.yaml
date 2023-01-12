@@ -1,0 +1,33 @@
+apiVersion: run.tanzu.vmware.com/v1alpha2
+kind: TanzuKubernetesCluster
+metadata:
+  name: tkc-workload-cluster
+  namespace: developer-utilities
+spec:
+  settings:
+    network:
+      cni:
+        name: antrea
+      pods:
+        cidrBlocks:
+        - 192.168.128.0/18
+      serviceDomain: managedcluster.local
+      services:
+        cidrBlocks:
+        - 192.168.192.0/18
+  topology:
+    controlPlane:
+      replicas: 1
+      storageClass: k8s-storage-policy
+      tkr:
+        reference:
+          name: v1.22.9---vmware.1-tkg.1.cc71bc8 
+      vmClass: best-effort-small
+    nodePools:
+    - name: worker-nodepool-a1    
+      replicas: 2
+      storageClass: k8s-storage-policy
+      tkr:
+        reference:
+          name: v1.22.9---vmware.1-tkg.1.cc71bc8
+      vmClass: best-effort-small

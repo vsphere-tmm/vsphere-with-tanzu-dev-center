@@ -1,0 +1,58 @@
+#cloud-config
+
+ssh_pwauth: true
+
+groups:
+  - admingroup: [root,sys]
+
+users:
+  - name: dev
+    gecos: Dev S. Ops
+    lock_passwd: false
+    passwd: $6$rounds=4096$Jgu6vHglZxhovsad$nLEB6bJDgX1Z6wLF41Jlog53umYYK/PQaItvr6hyO74sDSphke.OyfWMxtHqeGBvtT.GFVBIvIQW.kasvVi2M.
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: sudo, users, admin
+    shell: /bin/bash
+
+write_files:
+  - content: |
+       ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+    append: true
+    path: /alteruser.txt
+
+  - content: |
+       CREATE USER 'devops'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
+       CREATE DATABASE demo;
+       GRANT ALL PRIVILEGES ON demo.* TO 'devops'@'%';
+
+       CREATE TABLE demo.user (
+         id INTEGER PRIMARY KEY AUTO_INCREMENT,
+         username varchar(255) NOT NULL,
+         password varchar(255) NOT NULL,
+         UNIQUE (username)
+       );
+
+
+       CREATE TABLE demo.entry (
+         id INTEGER PRIMARY KEY AUTO_INCREMENT,
+         author_id INTEGER NOT NULL,
+         created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+         title varchar(255) NOT NULL,
+         body varchar(5400) NOT NULL,
+         FOREIGN KEY (author_id) REFERENCES user (id)
+       );
+
+       INSERT INTO demo.user (username,password) VALUES('Jeremy','devops123');
+       INSERT INTO demo.entry (author_id,title,body) VALUES(1,"Welcome to the request page, this is the first entry","This entry is owned by Jeremy and can only be modified by him. You can create your own post by registering and logging in!");
+
+    append: true
+    path: /init.sql
+
+runcmd:
+  - sudo apt update
+  - sudo apt -y install mysql-server
+  - sudo systemctl start mysql.service
+  - sudo mysql < /alteruser.txt
+  - mysql -u root -ppassword < /init.sql
+  - sudo sed -i '0,/bind-address/s//#bind-address/' /etc/mysql/mysql.conf.d/mysqld.cnf
+  - sudo systemctl restart mysql.service
