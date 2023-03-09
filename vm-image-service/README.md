@@ -1,5 +1,5 @@
 
-# Virtual Machine Supervisor Service
+# Virtual Machine Image Supervisor Service
 
 ⚠️ Work In Progress - Page under construction ⚠️
 
