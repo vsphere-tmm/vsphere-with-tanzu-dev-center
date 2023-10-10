@@ -42,16 +42,17 @@ The UI can be used in addition to the kubectl and API support available in CCI.
 The UI allows users to execute all necessary workflows:
 - List all Clusters
     - Show summary of cluster
-    - Show details of cluster
+    - Show details of cluster, including editing the cluster
 - Action menubar
-    - Create a new cluster Default configuration
-    - Create a new cluster Custom Configuration
+    - Create a new cluster (Default and Custom configuration)
 - Grid action menu
     - View the YAML for a cluster
-    - Edit a cluster
     - Delete a cluster
 
 ## List all Clusters
+
+![Listing of clusters](source/images/tkgs-list.png "Listing of clusters")
+
 
 ## Actions
 There are two options for creating Tanzu Kubernetes Clusters. You can create clusters with Default settings or customize the cluster's settings.

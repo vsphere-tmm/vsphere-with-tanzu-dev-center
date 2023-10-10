@@ -38,17 +38,22 @@ This would be a summary of what this tutorial covers, example deploy a vm.....
 The UI can be used in addition to the kubectl and API support available in CCI.
 
 The UI allows users to execute all necessary workflows:
-- List all Services
+- Services
+    - List all Services
+        - See summary of the service
+        - See details for the service
     - Action
         - View the YAML for a service
-    - See details for the service
 - List all VM Load Balancers
+    - List all Load Balancers
+        - See summary of the Load Balancer
+        - See details for the Load Balancer
     - Action menu bar
         - Create a new Load Balancer
     - Grid action menu
         - View the YAML for a Load Balancer
-        - Edit a Load Balancer
         - Delete a Load Balancer
+        - Edit a Load Balancer
 
 ## List all Services
 
