@@ -41,7 +41,7 @@ The UI allows users to execute all necessary workflows:
 - Virtual Machines
     - List all VMs
         - Show summary of VM
-        - Show details of VM, including editing the VM
+        - Show details of VM, including editing the VM, health status, and recent events
         - Toggle display of TKG Cluster VMs
     - Action menubar
         - Create a new VM (Default and Advanced configuration)
@@ -81,13 +81,16 @@ There are additional columns that can be toggled through the Manage Columns butt
 
 Click on the double chevrons to see key information for the resources.
 
+![VM Summary](source/images/vm-service-summary.png "VM Summary")
+
+
 ### Details of VM
 
 Click on the VM to see all the details for the resource, including VM health status and recent events.
 
 The user has the ability to toggle the Power State and manage the volumes associated with the VM. Volumes can be added, detached, or have their capacity increased through the UI.
 
-![VM Edit](source/images/vm-service-day-2.png "VM Edit")
+![VM Edit](source/images/vm-service-details.png "VM Edit")
 
 ### Action Menubar
 #### Create VM
