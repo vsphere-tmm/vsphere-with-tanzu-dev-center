@@ -1,39 +1,6 @@
-
-# Virtual Machines Supervisor Service
+# Network Service - UI Support
 
 ⚠️ Work In Progress - Page under construction ⚠️
-
-This is the overview page for the virtual machine service. This is where the summary would go  
-
-[VM Service API Documentation](http://developers.eng.vmware.com/apis/iaas/)
-
-## Support
-* Only support v1 API
-* Something else
-
-
-## Tutorials
-[This would be one example tutorial](#this-would-be-one-example-tutorial) - [***(Video Tutorial)***](#demo-video-for-this-example)
-
-[Another example tutorial](#another-example-tutorial)
-
-
-## This would be one example tutorial
-
-This would be a summary of what this tutorial covers, example deploy a vm.....
-
-
-#### Demo Video for this example
-
-[![Example Thumbnail](source/images/example_thumbnail.PNG "This is an example")](https://www.youtube.com/)
-
-## Another example tutorial
-1. Configure something
-2. Deploy secret
-3. Deploy config-map
-4. deploy VM object
-
-# Network Service - UI Support
 
 The UI can be used in addition to the kubectl and API support available in CCI.
 
@@ -57,11 +24,104 @@ The UI allows users to execute all necessary workflows:
 
 ## List all Services
 
-### Actions
-### Details
+List of available Network Services. You can deploy and manage services in a self-service way using Kubernetes APIs.
+
+Users can view all the Network Services created in the namespace. The user will see the following information in the grid's default view:
+- Name
+- Type
+- Cluster IP
+- External IP
+- Ports
+- Age
+
+There are additional columns that can be toggled through the Manage Columns button located at the bottom of the grid:
+
+- Labels - any labels assigned to the service
+- Created On - specific time the service was created
+
+![NetworkServices List](/Users/rezhil/vsphere-with-tanzu-dev-center/network-service/source/network-services-list.png "Network Services List")
+
+### Summary of Network Services
+
+Click on the double chevrons to see key information for the resources.
+
+![NetworkService Summary](/Users/rezhil/vsphere-with-tanzu-dev-center/network-service/source/netwrok-service-summary.png "Network Service Summary")
+
+### Details of Network Services
+
+Click on the Service name to see all the details for the resource, including recent events.
+
+![NetworkService Details](/Users/rezhil/vsphere-with-tanzu-dev-center/network-service/source/netwrok-service-details.png "Network Service Details")
+
+### Action Menubar
+#### View YAML
+
+To view the resource YAML in the YAML Explorer panel at bottom.
+
+![NetworkService View_YAML](/Users/rezhil/vsphere-with-tanzu-dev-center/network-service/source/network-services-view-yaml.png "Network Services View YAML")
 
 ## List all VM Load Balancers
 
-### Actions
-### Details
+List of available Network Services. You can deploy and manage service in a self-service way using Kubernetes APIs.
 
+Users can view all the Network Services created in the namespace. The user will see the following information in the grid's default view:
+- Name
+- Selector
+
+![VM_Load_Balancers_List](/Users/rezhil/vsphere-with-tanzu-dev-center/network-service/source/vm-lb-list.png "VM Load Balancer List")
+
+### Summary of Network Services
+
+Click on the double chevrons to see key information for the resources.
+
+![VM_Load_Balancer Summary](/Users/rezhil/vsphere-with-tanzu-dev-center/network-service/source/vm-lb-summary.png "VM Load Balancer Summary")
+
+### Details of Network Services
+
+Click on the Service name to see all the details for the resource, including recent events.
+
+![VM_Load_Balancer Details](/Users/rezhil/vsphere-with-tanzu-dev-center/network-service/source/vm-lb-details.png "VM Load Balancer Details")
+
+### Action Menubar
+#### Create
+
+Create VM Load Balancer workflow.
+
+On Create button click VM Load Balancer model open with pre-populated name. 
+We are able to edit the name, depend on the name 'Selector' value get populated.
+
+![Create_VM_Load_Balancer](/Users/rezhil/vsphere-with-tanzu-dev-center/network-service/source/vm-lb-create.png "Create VM Load Balancer")
+
+##### Create new port
+
+To add new port to port group. THe user will enter following required fields and click Add button.
+- Name
+- Port
+- Protocol
+- Target
+
+![Create_VM_Add_Port](/Users/rezhil/vsphere-with-tanzu-dev-center/network-service/source/vm-lb-add-port.png "Create VM Add Port")
+
+![Create_VM_Load_Balancer_Valid](/Users/rezhil/vsphere-with-tanzu-dev-center/network-service/source/vm-lb-create-vaild.png "Create VM Load Balancer Valid")
+
+### Action Menubar
+
+![VM_Load_Balancers_Action_Menu](/Users/rezhil/vsphere-with-tanzu-dev-center/network-service/source/vm-lb-action-menu.png "VM Load Balancers Action Menu")
+
+#### View YAML
+
+To view the resource YAML in the YAML Explorer panel at bottom.
+
+![VM_Load_Balancer View_YAML](/Users/rezhil/vsphere-with-tanzu-dev-center/network-service/source/vm-lb-view-yaml.png "VM Load Balancer View YAML")
+
+#### Delete
+
+Show Delete confirmation popup
+
+![VM_Load_Balancers_Delete_Confirmation](/Users/rezhil/vsphere-with-tanzu-dev-center/network-service/source/vm-b-delete-confirmation.png "VM Load Balancers Delete Confirmation")
+
+#### Edit
+
+Show edit VM LB popup to add / remove port
+
+![VM_Load_Balancers_Edit](/Users/rezhil/vsphere-with-tanzu-dev-center/network-service/source/vm-lb-edit.png "VM Load Balancers Edit")
