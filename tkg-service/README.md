@@ -42,7 +42,7 @@ The UI can be used in addition to the kubectl and API support available in CCI.
 The UI allows users to execute all necessary workflows:
 - List all Clusters
     - Show summary of cluster
-    - Show details of cluster, including editing the cluster
+    - Show details of cluster, including editing the cluster, health status, and recent events
 - Action menubar
     - Create a new cluster (Default and Custom configuration)
 - Grid action menu
@@ -53,9 +53,23 @@ The UI allows users to execute all necessary workflows:
 
 ![Listing of clusters](source/images/tkgs-list.png "Listing of clusters")
 
+## Summary of a cluster
+
+![Cluster summary](source/images/tkgs-cluster-summary.png "Cluster summary")
+
+## Details of a cluster
+
+The details page provides all the information related to the cluster. The user has the option
+to edit some settings for the cluster, including:
+- Control Plane - Number of replicas and the VM Class
+- Nodepools - Number of replicas, VM Class, and adding or editing Volumes
+
+![Cluster details](source/images/tkgs-cluster-details.png "Cluster details")
 
 ## Actions
-There are two options for creating Tanzu Kubernetes Clusters. You can create clusters with Default settings or customize the cluster's settings.
+
+There is a single action available in the list view. The Create button provides two options for creating Tanzu Kubernetes Clusters. You can create clusters with Default settings or customize the cluster's settings. Only VMware provided Cluster Class is supported to customize the cluster.
+
 ### Create a new cluster - Default configuration
 
 ![Default Cluster Create](source/images/defaultclustercreate.png "Default Cluster Create")
@@ -105,3 +119,11 @@ Click on Next once you are done with Nodepool configuration.
 Review the details of the cluster configuration and click FINISH to create your cluster.
 
 ![Custom Cluster Review](source/images/customreview.png "Custom Cluster Review")
+
+### Grid action menu
+
+There are two actions available from the grid menu.
+1. Viewing the YAML for the resource
+2. Deleting the Cluster
+
+![TKGS action menu](source/images/tkgs-grid-action-menu.png "TKGS action menu")

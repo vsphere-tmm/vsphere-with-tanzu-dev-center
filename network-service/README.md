@@ -41,7 +41,7 @@ The UI allows users to execute all necessary workflows:
 - Services
     - List all Services
         - See summary of the service
-        - See details for the service
+        - See details for the service, including recent events
     - Action
         - View the YAML for a service
 - List all VM Load Balancers
