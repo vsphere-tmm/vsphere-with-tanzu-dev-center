@@ -62,11 +62,15 @@ To view the resource YAML in the YAML Explorer panel at bottom.
 
 ## List all VM Load Balancers
 
-List of available Network Services. You can deploy and manage service in a self-service way using Kubernetes APIs.
+List of available Load Balancers. You can deploy and manage load balancers in a self-service way using Kubernetes APIs.
 
 Users can view all the Network Services created in the namespace. The user will see the following information in the grid's default view:
 - Name
 - Selector
+- Age
+
+There are additional column that can be toggled through the Manage Columns button located at the bottom of the grid:
+- Created On - specific time the service was created
 
 ![VM_Load_Balancers_List](source/vm-lb-list.png "VM Load Balancer List")
 
@@ -87,14 +91,14 @@ Click on the Service name to see all the details for the resource, including rec
 
 Create VM Load Balancer workflow.
 
-On Create button click VM Load Balancer model open with pre-populated name. 
-We are able to edit the name, depend on the name 'Selector' value get populated.
+When you click the Create button, the VM Load balancer modal will open with a pre-populated name.
+The name can be updated. When updating the name, the 'Selector' value will get updated accordingly.
 
 ![Create_VM_Load_Balancer](source/vm-lb-create.png "Create VM Load Balancer")
 
 ##### Create new port
 
-To add new port to port group. THe user will enter following required fields and click Add button.
+To add new port to a port group, the user must enter the following fields and click Add button,
 - Name
 - Port
 - Protocol
@@ -104,13 +108,20 @@ To add new port to port group. THe user will enter following required fields and
 
 ![Create_VM_Load_Balancer_Valid](source/vm-lb-create-vaild.png "Create VM Load Balancer Valid")
 
-### Action Menubar
+### Grid action menu
+
+There are several actions available from the grid menu.
+1. Viewing the YAML for the resource
+2. Deleting the VM Load Balancer
+3. Edit the VM Load Balancer
+
+Click on the 3 vertical dots to open the menu.
 
 ![VM_Load_Balancers_Action_Menu](source/vm-lb-action-menu.png "VM Load Balancers Action Menu")
 
 #### View YAML
 
-To view the resource YAML in the YAML Explorer panel at bottom.
+To view the resource YAML in the YAML Explorer panel at bottom / right.
 
 ![VM_Load_Balancer View_YAML](source/vm-lb-view-yaml.png "VM Load Balancer View YAML")
 
