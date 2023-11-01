@@ -103,13 +103,13 @@ For both paths the user must select a VM Image and VM Class for the VM.
 
 The user is then presented with "REVIEW AND CONFIRM" and "GO TO ADVANCED SETTINGS" buttons.
 
-If the user clicks on "REVIEW AND CONFIRM", then they are taken immediately to the last step of the wizard to review the settings before dpeloying the VM.
+If the user clicks on "REVIEW AND CONFIRM", then they are taken immediately to the last step of the wizard to review the settings before deploying the VM.
 
 After reviewing the two options they selected, they can proceed with the VM creation by clicking the DEPLOY VM button.
 
-If the user has opted for the advanced settings flow, they have the abililty to:
+If the user has opted for the advanced settings flow, they have the ability to:
 - Add additional volumes to the VM
-- Specify a ssh keypair to use to access the VM
+- Specify a ssh key-pair to use to access the VM
 - Add additional LoadBalancer configuration (service resources)
 - Add Cloud-config data, configuration, or scripts; or alternatively, Sysprep data for a Windows configuration
 
@@ -135,6 +135,23 @@ There are several actions available from the grid menu.
 Click on the 3 vertical dots to open the menu.
 
 ![VM Grid Menu](source/images/vm-service-grid-menu.png "VM Grid Menu")
+
+#### Publishing the VM to a writable Content Library
+![VM Publish Action](source/images/vm-service-publish-action.png "Starting VM Publish") ![VM Publish Action](source/images/vm-service-publish-modal.png "Starting VM Publish")
+For namespaces backed by vCenter 8.0 Update 2 and above, VirtualMachines can be published as VM Templates into an namespace associated content library resource. The content library object on the vCenter must be made writable by the VI admin managing the namespace on the vCenter.
+
+#### Opening the web console for the VM
+![Open Web Console Action](source/images/vm-service-webconsole-action.png "Open Web Console for a VM")
+Web console for a VM can be accessed by clicking the action shown in the above picture.
+VM Web console is accessible to consumption users over the public network. The web console connection is established by proxy-ing through the Supervisor load balancer. 
+VM's web console will be opened after a "Open VM Web Console" request has been placed in the Supervisor. After the operator has processed the request; a URL is generated and the web console of the VM opens up in a new tab (browser pop-ups must be allowed for the web console to open.)<br/>*Note: This may take several seconds to launch due to the steps involved in opening the VM's Web Console.*
+
+![Provide supervisor cluster IP](source/images/vm-service-webconsole-ip.png "Provide supervisor cluster IP")
+Normally, consumption UI must be able to resolve the Supervisor load balancer IP address, but if it fails to do so then the above modal will appear where the consumption user can provide the supervisor load balancer IP address manually. VI Admin should be able to provide the necessary IP address.
+
+#### Delete a VM from a namespace
+![Provide supervisor cluster IP](source/images/vm-service-delete-modal.png "Provide supervisor cluster IP")
+VirtualMachines can have other associated resources, viz. volume claims, load balancers, and bootstrap config. When a VM with associated resource(s) is deleted then a confirmation modal appears listing the resources which will be deleted prior to VM deletion with the exception of persistent volume claims. Persistent volume claims can be excluded from deletion if the checkbox on the modal is left unchecked.
 
 ## VM Classes
 
